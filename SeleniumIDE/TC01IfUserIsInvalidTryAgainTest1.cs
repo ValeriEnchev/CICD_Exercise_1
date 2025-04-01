@@ -28,6 +28,11 @@ public class TC01IfUserIsInvalidTryAgainTest
         options.AddArguments("disable-gpu");
         options.AddArguments("window-size=1920x1080");
 
+        string userDataDir = Path.Combine(Path.GetTempPath(),
+            Path.GetTempFileName());
+        Directory.CreateDirectory(userDataDir);
+        options.AddArguments($"--user-data-dir={userDataDir}");
+
         driver = new ChromeDriver(options);
         js = (IJavaScriptExecutor)driver;
         vars = new Dictionary<string, object>();

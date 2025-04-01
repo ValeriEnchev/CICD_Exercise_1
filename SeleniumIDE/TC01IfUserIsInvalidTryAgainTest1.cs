@@ -29,7 +29,7 @@ public class TC01IfUserIsInvalidTryAgainTest
         options.AddArguments("window-size=1920x1080");
 
         string userDataDir = Path.Combine(Path.GetTempPath(),
-            Path.GetTempFileName());
+            Path.GetRandomFileName());
         Directory.CreateDirectory(userDataDir);
         options.AddArguments($"--user-data-dir={userDataDir}");
 
